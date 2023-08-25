@@ -1,0 +1,33 @@
+version: '3.3'
+
+services:
+  mysql_database:
+    image: mysql:8.0
+    restart: always
+    env_file:
+      - .env
+    # environment:
+    #   MYSQL_DATABASE: 'python_app_db'
+    #   MYSQL_USER: 'python_app_user'
+    #   MYSQL_PASSWORD: 'Ti66O6oNIBDBpClm1U92'
+    #   MYSQL_ROOT_PASSWORD: '7YIjcW4ltAPyso3YZi99'
+    ports:
+      - '3306:3306'
+    volumes:
+      - my-db:/var/lib/mysql
+
+  python_counter_app:
+    image: hsoni2404/counterapp:v1
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile
+    restart: always
+    ports:
+      - '5000:5000'
+    env_file:
+      - .env
+    depends_on:
+      - mysql_database
+
+volumes:
+  my-db:
