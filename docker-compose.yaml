@@ -6,11 +6,6 @@ services:
     restart: always
     env_file:
       - .env
-    # environment:
-    #   MYSQL_DATABASE: 'python_app_db'
-    #   MYSQL_USER: 'python_app_user'
-    #   MYSQL_PASSWORD: 'Ti66O6oNIBDBpClm1U92'
-    #   MYSQL_ROOT_PASSWORD: '7YIjcW4ltAPyso3YZi99'
     ports:
       - '3306:3306'
     volumes:
