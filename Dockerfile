@@ -7,8 +7,8 @@ VOLUME [ "/var/lib/mysql" ]
 RUN apt-get update && apt-get install -y python3 \
     python3-pip \
     libmysqlclient-dev \
-    pkg-config \
-
+    pkg-config 
+    
 COPY . .
 
 RUN pip3 install -r requirements.txt
